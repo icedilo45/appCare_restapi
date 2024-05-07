@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'algoliasearch_django',
     'api',
+    'articles',
     'products',
     'search',
 ]

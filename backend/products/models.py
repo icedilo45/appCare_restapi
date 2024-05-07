@@ -37,6 +37,17 @@ class Product(models.Model):
     
     objects = ProductManager()
 
+    def get_absolute_url(self):
+        return f'/api/products/{self.pk}'
+
+    @property
+    def endpoint(self):
+        return self.get_absolute_url()
+
+    @property
+    def path(self):
+        return f'/products/{self.pk}'
+
     @property
     def body(self):
         return self.content
