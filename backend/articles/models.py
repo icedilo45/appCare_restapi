@@ -8,7 +8,7 @@ User = settings.AUTH_USER_MODEL
 class ArticleManager(models.Manager):
     def public(self):
         now = timezone.now()
-        return self.get_queryset().filter(make_public=True, publish_date_lte=now)
+        return self.get_queryset().filter(make_public=True, publish_date__lte=now)
     
 class Article(models.Model):
     user = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)

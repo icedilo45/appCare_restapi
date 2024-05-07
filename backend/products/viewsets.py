@@ -7,6 +7,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     get -> List -> QuerySet
     get -> retrieve -> Product Instance Detail View
     post -> create -> New Instance
+    put -> Update
     patch -> Partial Update
     delete -> destroy
     '''

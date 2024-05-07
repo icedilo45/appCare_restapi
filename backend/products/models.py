@@ -38,7 +38,7 @@ class Product(models.Model):
     objects = ProductManager()
 
     def get_absolute_url(self):
-        return f'/api/products/{self.pk}'
+        return f'/api/products/{self.pk}/'
 
     @property
     def endpoint(self):
@@ -46,7 +46,7 @@ class Product(models.Model):
 
     @property
     def path(self):
-        return f'/products/{self.pk}'
+        return f'/products/{self.pk}/'
 
     @property
     def body(self):
@@ -60,8 +60,12 @@ class Product(models.Model):
 
     @property
     def sale_price(self):
-        return '%.2f' %(float(self.price) * 0.9)
+        if self.price > 90:
+            return '%.2f' %(float(self.price) * 0.9)
+        else:
+            return '%.2f' %(float(self.price))
     
-    @property
-    def get_discount(self):
-        return '5'
+    # @property
+    # def get_discount(self):
+    #     return '5'
+    

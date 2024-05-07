@@ -12,5 +12,6 @@ class ArticleSerializer(serializers.ModelSerializer):
             'author',
             'title',
             'body',
-            'path'
+            'path',
+            'endpoint',
         ]
