@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'algoliasearch_django',
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -59,6 +61,15 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'appcare_home.urls'
+CORS_URLS_REGEX = r'^/api/.*'
+CORS_ALLOWED_ORIGINS = []
+
+
+if DEBUG:
+    CORS_ALLOWED_ORIGINS += [
+        'http://localhost:8086',
+        'https://localhost:8086',
+    ]
 
 TEMPLATES = [
     {
